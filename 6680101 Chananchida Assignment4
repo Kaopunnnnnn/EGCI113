@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    int a,b,c;
+    float x1,x2;
+
+    printf("Input your coefficients:");
+    scanf("%d %d %d", &a,&b,&c);
+
+   puts("The root of equation");
+
+// In format ax^2+bx+c//
+
+   switch(a) {
+//have to be switch case like this bec don't want to have number 1 in front a value & more option//
+
+    case 1: printf("x^2");break; //break here is optional bec it already break in the next line//
+    case 0: break;
+    case -1: printf("-x^2"); break;
+    default: printf("%dx^2",a); //normal case//
+
+   }
+
+   if(a!=0 && b>0) printf("+"); //a!=0 bec if a=0 then you will have + in front b without nothing in front it//
+
+   switch(b) {
+
+     case 1: printf("x");break;
+     case 0: break;
+     case -1: printf("-x"); break;
+     default: printf("%dx",b);
+
+   }
+
+// switch(C)//
+
+   if ((a!=0 || b!=0)&&c>0) printf("+"); // || means or//
+   if (c!=0) printf ("%d",c);
+
+   puts("=0");
+
+    /*Calculate the root of the equation*/
+
+    float sq=b*b-4*a*c;
+    if(a==0) {
+
+        if(b!=0)
+        printf("The answer is %.2f\n",-(float)c/b); //float bec this is not int operation (rational form)//
+    else printf ("No solution\n");
+
+    }
+
+   else {
+    if(sq==0)  {
+    printf("The answer is %.2f\n", -(float)b/(2*a));
+
+    }
+
+
+    else if(sq<0) printf("No solution\n");
+    else {
+                printf("The answer are %.2f");
+
+
+        }
+   }
+
+
+
+
+
+
+    return 0;
+}
