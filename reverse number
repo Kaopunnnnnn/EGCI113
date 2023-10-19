@@ -1,17 +1,16 @@
-//Reverse the number
 #include <stdio.h>
 
 int
 main ()
 {
-  int num;
+  int num,x ;
   printf ("Enter the number:");
   scanf ("%d", &num);
 
-  int a;
+  
   while (num > 0)
-    { a = num % 10;
-      printf ("%d", a);
+    { x = num % 10;
+      printf ("%d", x);
       num /= 10;
 }
 
