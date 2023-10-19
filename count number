@@ -1,0 +1,19 @@
+//Reverse the number
+#include <stdio.h>
+
+int
+main ()
+{
+  int num;
+  printf ("Enter the number:");
+  scanf ("%d", &num);
+
+  int a;
+  while (num > 0)
+    { a = num % 10;
+      printf ("%d", a);
+      num /= 10;
+}
+
+  return 0;
+}
