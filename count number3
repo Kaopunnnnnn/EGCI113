@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main()
+{
+    int x,count;
+    count=0;
+
+    printf("Please input the number: ");
+    scanf("%d",&x);
+    
+    while(x>0){
+    if(x%10==3) count++;
+    x/=10;
+}
+printf("There are %d number of 3 in this number\n",count);
+
+    return 0;
+}
