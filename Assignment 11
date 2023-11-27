@@ -1,0 +1,103 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define size 10
+
+struct student {
+    char name[20]; //string 19+1
+    double score;
+    char grade;
+
+};
+
+int getstudent(struct student cst[]);//need array bec value change
+void convertgrade (struct student cst[], int);
+void showstudent (struct student cst);
+void showhighest(struct student cst[],int);
+
+
+
+int main()
+{
+    int i,n;
+
+    struct student cst[size];
+
+
+        n=getstudent(cst);
+        convertgrade(cst,n);
+
+
+    for (i=0;i<n;i++) {
+
+        showstudent(cst[i]);
+
+    }
+
+     showhighest (cst,n);
+
+
+    return 0;
+}
+
+    int getstudent(struct student cst[]) {
+
+        int i,n;
+
+        printf("How many students? (max %d)",size);
+        scanf("%d",&n);
+
+
+     for(i=0;i<n;i++) {
+
+        printf("Input name #%d  ",i+1);
+        scanf("%s", cst[i].name);
+
+        printf("Score: ");
+        scanf ("%lf",&cst[i].score);
+    }
+
+    return n;
+
+    }
+
+
+
+    void convertgrade (struct student cst[], int n) {
+    int i;
+
+      for(i=0;i<n;i++) {
+
+        if (cst[i].score>=80) cst[i].grade= 'A';
+        else if (cst[i].score>=70) cst[i].grade= 'B';
+        else if (cst[i].score>=60) cst[i].grade= 'C';
+        else cst[i].grade= 'F';
+
+      }
+
+
+    }
+
+    void showstudent (struct student cst) {//no array bec value dont change
+    int i,n;
+
+            printf ("Name: %s has score %.2f and got grade %c \n",cst.name, cst.score, cst.grade);
+
+
+
+    }
+
+
+    void showhighest (struct student cst[], int n) {
+
+    struct student max=cst[0];
+    int i;
+
+     for(i=1;i<n;i++) {
+
+            if (max.score < cst[i].score)
+                max=cst[i]; //whole struct
+
+     }
+            printf ("student with the highest score is %s with a score %.2f and grade %c \n",max.name, max.score, max.grade);
+
+    }
